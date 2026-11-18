@@ -1,1 +1,42 @@
-.owner-link{font-size:10px;color:#9e9b91}.owner-link:hover{color:#e76a39}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.project-grid .project-card{min-width:0}.project-grid .project-1{grid-row:span 1}.project-grid .project-image,.project-grid .project-1 .project-image{height:340px}.project-grid .project-2 .project-image,.project-grid .project-3 .project-image{height:340px}.project-index{z-index:1}@media(max-width:700px){.project-grid{grid-template-columns:1fr}.project-grid .project-image,.project-grid .project-1 .project-image,.project-grid .project-2 .project-image,.project-grid .project-3 .project-image{height:260px}}
+.owner-link {
+    font-size: 10px;
+    color: #9e9b91
+}
+
+.owner-link:hover {
+    color: #e76a39
+}
+
+.project-grid {
+    grid-template-columns:repeat(2, minmax(0, 1fr))
+}
+
+.project-grid .project-card {
+    min-width: 0
+}
+
+.project-grid .project-1 {
+    grid-row: span 1
+}
+
+.project-grid .project-image, .project-grid .project-1 .project-image {
+    height: 340px
+}
+
+.project-grid .project-2 .project-image, .project-grid .project-3 .project-image {
+    height: 340px
+}
+
+.project-index {
+    z-index: 1
+}
+
+@media (max-width: 700px) {
+    .project-grid {
+        grid-template-columns:1fr
+    }
+
+    .project-grid .project-image, .project-grid .project-1 .project-image, .project-grid .project-2 .project-image, .project-grid .project-3 .project-image {
+        height: 260px
+    }
+}
