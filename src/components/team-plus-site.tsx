@@ -49,9 +49,11 @@ const projects = [
 ]
 
 function Header() {
-    return <header className="site-header"><a className="brand" href="#top"
-                                              aria-label="Team Plus Construction home"><span
-        className="brand-mark">TP<span>+</span></span><span className="brand-name">TEAM PLUS <small>CONSTRUCTION</small></span></a>
+    return <header className="site-header">
+        <a className="brand" href="#top"
+           aria-label="Team Plus Construction home">
+            <Image src="/TeamPlus_logo_light.svg" alt="Team Plus Logo" width={160} height={50}/>
+        </a>
         <nav aria-label="Main navigation"><a href="#services">Services</a><a href="#work">Our work</a><a href="#about">About
             us</a></nav>
         <a className="header-call" href="tel://+16474051729"><Phone size={15}/> <span>647 405 1729</span><ArrowUpRight
@@ -59,7 +61,7 @@ function Header() {
 }
 
 function Hero() {
-    return <section className="hero" id="top"><Image src="/team-plus-hero.png"
+    return <section className="hero" id="top"><Image src="/team_plus_hero.avif"
                                                      alt="A newly finished exposed-aggregate concrete patio beside a contemporary home"
                                                      fill priority sizes="100vw" className="hero-image"/>
         <div className="hero-shade"/>
@@ -72,7 +74,10 @@ function Hero() {
                 services <ArrowDown size={15}/></a></div>
         </div>
         <div className="hero-side-note">TORONTO & THE GTA <span>·</span> ONTARIO</div>
-        <div className="hero-bottom"><span>Residential concrete specialists</span><span>01 / 04</span></div>
+         <div className="hero-bottom"><span>Residential concrete specialists</span><Image src="/teamplus_qr.png"
+                                                                                         alt="QR @teamplus" width={140}
+                                                                                         height={140}
+                                                                                         className="rounded-lg"/></div>
     </section>
 }
 
