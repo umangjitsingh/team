@@ -20,7 +20,7 @@ export const auth = betterAuth({
             : []),
         process.env.BETTER_AUTH_URL,
         process.env.PRODUCTION_URL ? `https://${process.env.PRODUCTION_URL}` : undefined,
-    ].filter(Boolean),
+    ].filter((origin): origin is string => Boolean(origin)),
     session: {
         expiresIn: 60 * 60 * 24 * 7,
         updateAge: 60 * 60 * 24,
