@@ -1,6 +1,9 @@
 import { TeamPlusSite } from '@/components/team-plus-site'
 import { db } from '@/lib/db'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function Page() {
   let gallery: { id: string; title: string; alt: string; imageUrl: string }[] = []
 
@@ -15,10 +18,11 @@ export default async function Page() {
       orderBy: {
         createdAt: 'desc',
       },
-      take: 6,
+      take: 20,
     })
+    console.log('[Homepage] Gallery loaded:', gallery.length, 'photos')
   } catch (error) {
-    console.error('[v0] Project gallery could not be loaded:', error)
+    console.error('[Homepage] Project gallery could not be loaded:', error)
   }
 
   return <TeamPlusSite gallery={gallery}/>

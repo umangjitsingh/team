@@ -446,7 +446,7 @@ function Footer() {
     <footer className="bg-zinc-950 text-white">
       <div className="mx-auto max-w-7xl px-5 py-12 md:px-8">
         <div className="flex flex-col gap-8 border-b border-white/15 pb-10 sm:flex-row sm:items-center sm:justify-between">
-          <div>
+          <div  >
             <a href="#top" aria-label="Team Plus Construction home">
               <BrandMark inverted />
             </a>
@@ -454,11 +454,11 @@ function Footer() {
               Built with care. Built to last.
             </p>
           </div>
-          <div className="sm:text-right">
+          <div className="sm:text-right sm:mr-18 ">
             <Eyebrow light>Have a project in mind?</Eyebrow>
             <a
               href={phoneHref}
-              className="mt-3 inline-flex items-center gap-2 font-serif text-2xl hover:text-primary sm:ml-5"
+              className="mt-3 inline-flex items-center gap-2 font-serif text-2xl sm:text-xl hover:text-primary sm:ml-12"
             >
               Call 647 405 1729
               <ArrowUpRight className="size-5 text-primary" />
@@ -468,18 +468,36 @@ function Footer() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col gap-3 pt-6 text-xs text-white/60 sm:flex-row sm:items-center sm:justify-between">
-          <span>© {new Date().getFullYear()} Team Plus Construction</span>
-          <span className="inline-flex items-center gap-1.5">
-            <MapPin className="size-3.5 text-primary" />
-            Proudly serving Toronto & the GTA
-          </span>
-          <a href={phoneHref} className="hover:text-white">
-            647 405 1729
-          </a>
-          <a href="/admin/sign-in" className="hover:text-primary">
-            Owner sign in
-          </a>
+        <div className="grid gap-4 pt-6 text-xs text-white/60 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4 lg:gap-8">
+          <div className="flex flex-col gap-2">
+            <span className="font-semibold text-white/80">Contact</span>
+            <a href={phoneHref} className="hover:text-white transition-colors">
+              647 405 1729
+            </a>
+            <a href="mailto:teamplus0001@gmail.com" className="hover:text-white transition-colors break-all">
+              teamplus0001@gmail.com
+            </a>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="font-semibold text-white/80">Address</span>
+            <span className="inline-flex items-start gap-1.5 leading-relaxed">
+              <MapPin className="size-3.5 text-primary shrink-0 mt-0.5" />
+              30 Intermodal Dr Unit #3, Brampton, ON L6T5K1
+            </span>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="font-semibold text-white/80">Service Area</span>
+            <span className="leading-relaxed">
+              Proudly serving Toronto & the GTA
+            </span>
+          </div>
+          <div className="flex flex-col gap-2">
+            <span className="font-semibold text-white/80">Legal</span>
+            <span>© {new Date().getFullYear()} Team Plus Construction</span>
+            <a href="/admin/sign-in" className="hover:text-primary transition-colors">
+              Owner sign in
+            </a>
+          </div>
         </div>
       </div>
     </footer>
