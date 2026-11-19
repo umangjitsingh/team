@@ -18,8 +18,9 @@ export const auth = betterAuth({
                 'http://localhost:3000',
             ]
             : []),
-
-    ],
+        process.env.BETTER_AUTH_URL,
+        process.env.PRODUCTION_URL ? `https://${process.env.PRODUCTION_URL}` : undefined,
+    ].filter(Boolean),
     session: {
         expiresIn: 60 * 60 * 24 * 7,
         updateAge: 60 * 60 * 24,
