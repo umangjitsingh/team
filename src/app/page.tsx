@@ -1,6 +1,9 @@
 import { TeamPlusSite } from '@/components/team-plus-site'
 import { db } from '@/lib/db'
 
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 export default async function Page() {
   let gallery: { id: string; title: string; alt: string; imageUrl: string }[] = []
 
