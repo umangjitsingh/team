@@ -111,7 +111,7 @@ function Hero() {
   return (
     <section
       id="top"
-      className="relative min-h-[36rem] overflow-hidden text-white lg:min-h-[42rem]"
+      className="relative min-h-144 overflow-hidden text-white lg:min-h-168"
     >
       <Image
         src="/team_plus_hero.avif"
@@ -121,10 +121,10 @@ function Hero() {
         sizes="100vw"
         className="object-cover object-[center_56%] saturate-75"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-black/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-linear-to-r from-black/75 via-black/45 to-black/10" />
+      <div className="absolute inset-0 bg-linear-to-t from-black/35 via-transparent to-transparent" />
 
-      <div className="relative mx-auto flex min-h-[36rem] max-w-7xl flex-col justify-center px-5 py-20 md:px-8 lg:min-h-[42rem]">
+      <div className="relative mx-auto flex min-h-144 max-w-7xl flex-col justify-center px-5 py-20 md:px-8 lg:min-h-168">
         <div className="max-w-xl">
           <Eyebrow light>Built on solid ground · since 2015</Eyebrow>
           <h1 className="mt-6 text-5xl leading-[0.95] font-semibold tracking-tight sm:text-7xl">
@@ -337,7 +337,7 @@ function Work({ gallery }: { gallery: GalleryItem[] }) {
               <div
                 className={cn(
                   "relative overflow-hidden rounded-2xl bg-muted",
-                  index === 0 ? "h-80 sm:h-[28rem]" : "h-72",
+                  index === 0 ? "h-80 sm:h-112" : "h-72",
                 )}
               >
                 <Image
@@ -446,7 +446,7 @@ function Footer() {
     <footer className="bg-zinc-950 text-white">
       <div className="mx-auto max-w-7xl px-5 py-12 md:px-8">
         <div className="flex flex-col gap-8 border-b border-white/15 pb-10 sm:flex-row sm:items-center sm:justify-between">
-          <div className=" min-w-56">
+          <div>
             <a href="#top" aria-label="Team Plus Construction home">
               <BrandMark inverted />
             </a>
@@ -454,11 +454,11 @@ function Footer() {
               Built with care. Built to last.
             </p>
           </div>
-          <div className="sm:text-right mr-6">
+          <div className="sm:text-right">
             <Eyebrow light>Have a project in mind?</Eyebrow>
             <a
               href={phoneHref}
-              className="mt-3 inline-flex items-center gap-2 font-serif text-2xl hover:text-primary sm:text-xl sm:ml-12"
+              className="mt-3 inline-flex items-center gap-2 font-serif text-2xl hover:text-primary sm:ml-5"
             >
               Call 647 405 1729
               <ArrowUpRight className="size-5 text-primary" />

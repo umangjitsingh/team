@@ -23,7 +23,6 @@ export function ThemeToggle({ className }: { className?: string }) {
       className={className}
       aria-label={isDark ? "Switch to light theme" : "Switch to dark theme"}
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      touch-action="manipulation"
     >
       {isDark ? <Sun /> : <Moon />}
     </Button>
