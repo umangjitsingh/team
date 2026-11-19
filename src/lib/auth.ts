@@ -1,25 +1,61 @@
-import {betterAuth} from 'better-auth'
-import {prismaAdapter} from 'better-auth/adapters/prisma'
-import {db} from '@/lib/db'
+// import {betterAuth} from 'better-auth'
+// import {prismaAdapter} from 'better-auth/adapters/prisma'
+// import {db} from '@/lib/db'
+//
+// export const auth = betterAuth({
+//     database: prismaAdapter(db, {
+//         provider: 'postgresql',
+//     }),
+//     baseURL:
+//     process.env.BETTER_AUTH_URL,
+//     emailAndPassword: {
+//         enabled: true,
+//         autoSignIn: true,
+//     },
+//     trustedOrigins: [
+//         ...(process.env.NODE_ENV === 'development'
+//             ? [
+//                 'http://localhost:3000',
+//             ]
+//             : []),
+//         process.env.BETTER_AUTH_URL,
+//         process.env.PRODUCTION_URL ? `https://${process.env.PRODUCTION_URL}` : undefined,
+//     ].filter((origin): origin is string => Boolean(origin)),
+//     session: {
+//         expiresIn: 60 * 60 * 24 * 7,
+//         updateAge: 60 * 60 * 24,
+//     },
+//     ...(process.env.NODE_ENV === 'development'
+//         ? {
+//             advanced: {
+//                 defaultCookieAttributes: {
+//                     sameSite: 'none' as const,
+//                     secure: true,
+//                 },
+//             },
+//         }
+//         : {}),
+// })
+import { betterAuth } from 'better-auth'
+import { prismaAdapter } from 'better-auth/adapters/prisma'
+import { db } from '@/lib/db'
+
+const productionHost = process.env.PRODUCTION_URL?.replace(/^https?:\/\//, '')
 
 export const auth = betterAuth({
     database: prismaAdapter(db, {
         provider: 'postgresql',
     }),
-    baseURL:
-    process.env.BETTER_AUTH_URL,
+    baseURL: process.env.BETTER_AUTH_URL,
     emailAndPassword: {
         enabled: true,
         autoSignIn: true,
     },
     trustedOrigins: [
-        ...(process.env.NODE_ENV === 'development'
-            ? [
-                'http://localhost:3000',
-            ]
-            : []),
+        ...(process.env.NODE_ENV === 'development' ? ['http://localhost:3000'] : []),
         process.env.BETTER_AUTH_URL,
-        process.env.PRODUCTION_URL ? `https://${process.env.PRODUCTION_URL}` : undefined,
+        productionHost ? `https://${productionHost}` : undefined,
+        productionHost ? `https://www.${productionHost}` : undefined,
     ].filter((origin): origin is string => Boolean(origin)),
     session: {
         expiresIn: 60 * 60 * 24 * 7,
