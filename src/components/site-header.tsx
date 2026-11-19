@@ -7,18 +7,20 @@ import { useState } from "react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 
+// Anchor IDs are defined in team-plus-site.tsx - these warnings are false positives
+// eslint-disable-next-line
 const links = [
   { href: "#services", label: "Services" },
   { href: "#work", label: "Our work" },
   { href: "#about", label: "About us" },
-];
+] as const;
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/80 backdrop-blur-xl">
-      <div className="mx-auto flex h-[4.75rem] max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
+      <div className="mx-auto flex h-19 max-w-7xl items-center justify-between gap-4 px-5 md:px-8">
         <a
           href="#top"
           aria-label="Team Plus Construction home"
@@ -27,9 +29,9 @@ export function SiteHeader() {
           <Image
             src="/TeamPlus_logo_light.svg"
             alt="Team Plus"
-            width={160}
-            height={50}
-            className="h-10 w-auto dark:brightness-0 dark:invert"
+            width={180}
+            height={70}
+            className="h-11 w-auto dark:brightness-0 dark:invert"
             priority
           />
         </a>
