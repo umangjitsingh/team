@@ -17,8 +17,9 @@ export default async function Page() {
       },
       take: 6,
     })
+    console.log('[Homepage] Gallery loaded:', gallery.length, 'photos')
   } catch (error) {
-    console.error('[v0] Project gallery could not be loaded:', error)
+    console.error('[Homepage] Project gallery could not be loaded:', error)
   }
 
   return <TeamPlusSite gallery={gallery}/>
