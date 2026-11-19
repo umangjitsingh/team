@@ -1,9 +1,10 @@
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import { AuthShell } from "@/components/admin/auth-shell";
 import { SignInForm } from "@/components/admin/sign-in-form";
 import { getAdminSession } from "@/lib/admin-auth";
 
-export const metadata = { title: "Owner sign in | Team Plus Construction" };
+export const metadata: Metadata = { title: "Owner sign in | Team Plus Construction" };
 
 export default async function AdminSignInPage() {
   const session = await getAdminSession();

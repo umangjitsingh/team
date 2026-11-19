@@ -1,10 +1,11 @@
 import { redirect } from "next/navigation";
+import type { Metadata } from "next";
 import { AuthShell } from "@/components/admin/auth-shell";
 import { SetupForm } from "@/components/admin/setup-form";
 import { getAdminSession } from "@/lib/admin-auth";
 import { db } from "@/lib/db";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Set up owner access | Team Plus Construction",
 };
 
