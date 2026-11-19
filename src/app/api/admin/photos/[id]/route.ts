@@ -17,6 +17,8 @@ export async function DELETE(request: NextRequest, context: { params: Promise<{ 
   }
 
   const { id } = await context.params
+  console.log('[Delete] Attempting to delete photo:', id)
+
   const photo = await db.projectGallery.findFirst({
     where: {
       id,
@@ -25,19 +27,25 @@ export async function DELETE(request: NextRequest, context: { params: Promise<{ 
   })
 
   if (!photo) {
+    console.log('[Delete] Photo not found for user:', session.user.id)
     return NextResponse.json({ message: 'That project photo could not be found.' }, { status: 404 })
   }
 
   try {
-    await cloudinary.uploader.destroy(photo.id)
+    console.log('[Delete] Deleting from Cloudinary:', photo.id)
+    const cloudinaryResult = await cloudinary.uploader.destroy(photo.id)
+    console.log('[Delete] Cloudinary result:', cloudinaryResult)
+
+    console.log('[Delete] Deleting from database')
     await db.projectGallery.delete({
       where: {
         id,
         userId: session.user.id,
       },
     })
+    console.log('[Delete] Successfully deleted from database')
   } catch (error) {
-    console.error('[v0] Project photo deletion failed:', error)
+    console.error('[Delete] Project photo deletion failed:', error)
     return NextResponse.json({ message: 'The photo could not be deleted. Please try again.' }, { status: 500 })
   }
 
