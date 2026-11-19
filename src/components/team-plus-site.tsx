@@ -458,7 +458,7 @@ function Footer() {
             <Eyebrow light>Have a project in mind?</Eyebrow>
             <a
               href={phoneHref}
-              className="mt-3 inline-flex items-center gap-2 font-serif text-2xl hover:text-primary sm:ml-6"
+              className="mt-3 inline-flex items-center gap-2 font-serif text-2xl hover:text-primary sm:ml-5"
             >
               Call 647 405 1729
               <ArrowUpRight className="size-5 text-primary" />
