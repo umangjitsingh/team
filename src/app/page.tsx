@@ -18,7 +18,7 @@ export default async function Page() {
       orderBy: {
         createdAt: 'desc',
       },
-      take: 6,
+      take: 20,
     })
     console.log('[Homepage] Gallery loaded:', gallery.length, 'photos')
   } catch (error) {
